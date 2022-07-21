@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <contador></contador>
+        <contador></contador>
+        <CONTADOR></CONTADOR>
+    </div>
+
+    <hr>
+
+    <script>
+        const dados = {contador:0}
+        
+        Vue.component('contador', {
+            template: `    
+            <div>
+                    <span>{{contador}}</span>
+                    <button @click="contador++">mais + </button>
+                    <button @click="contador--">menos -</button>
+                    </div>
+                `,
+            data: function () {
+                // return dados     //caso vc queira ter uma unica variavel sendo retornada
+                return {
+                    contador: 0
+                }
+            }
+        })
+        new Vue({
+            el: "#app",
+        })
+
+    </script>
+</body>
+
+</html>
