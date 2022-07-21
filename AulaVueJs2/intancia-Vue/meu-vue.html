@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+
+    <div id="app">
+        {{nome}} - {{sobrenome}} - {{1+1}}
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        function MeuVue(param) {
+            this.$el = document.querySelector(param.el);
+            this.$data = param.data;
+
+            for (let atr in this.$data) {
+                Object.defineProperty(this, atr, {
+                    get: () => {
+                        return this.$data[atr];
+                    },
+                    set: () => {
+                        //..before..
+                        this.$data[atr];
+                        //..after..
+                    }
+                })
+            }
+            const regex = /\{\{([\s\w+]*)\}\}/g;
+            this.$el.innerHTML = this.$el.innerHTML.replace(regex,(match,$1) => {
+                const value = this[$1.trim()]                
+                return value ? value : eval($1)
+            })
+        }
+            
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                nome: "maria",
+                sobrenome: "silva"
+            }
+        })
+
+        console.log(vm.nome)
+        console.log(vm.$data.nome)
+        console.log(vm.$el)
+        console.log(vm)
+
+        vm.nome = "jesus";
+        console.log(vm.$data.nome)
+
+
+    </script>
+</body>
+
+</html>

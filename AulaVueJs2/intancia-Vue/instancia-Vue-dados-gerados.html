@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <div id="app1">        
+        <span>{{ titulo }}   - {{info}}</span>
+        <button @click="alterar">alterar</button>
+    </div>
+
+
+    <script>
+        const vm = new Vue({
+            el: "#app1",
+            data: {
+                titulo: "teste 1"               
+            },
+            methods: {
+                alterar() {
+                    this.titulo += " ?"
+                }
+            }
+        })
+        vm.info = "testando";
+        console.log(vm.info);
+    </script>
+</body>
+
+</html>
