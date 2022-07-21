@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+        <button v-on:click="increaseCounter">Somar 1</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0
+            },
+            methods:{
+                increaseCounter(){
+                    this.contador++;
+                }
+            }
+        }) 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{titulo}}</p>
+        <p>{{saudacao("cachorro")}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: "Usando Vue js.2"
+            },
+            methods: {
+                saudacao: function (string) {
+                    return `isto é um ${string}`
+                }
+
+            }
+        }) 
+    </script>
+</body>
+
+</html>

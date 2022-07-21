@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="aumetar">Aumentar</button>
+        <button v-on:click="contador2++">Aumentar2</button>
+        <button v-on:click="diminuir">Diminuir</button>
+        <p>Contador: {{contador}} || {{contador2}}</p>
+        <p>Resultado é igual: {{resultado}} </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                contador2: 0
+            },
+            computed:{
+                resultado(){
+                    console.log("método computado é chamado")
+                    return this.contador >= 5 ? 'verdadeiro' : 'falso'
+                }
+                //sabe que o método computado não 
+                //altera as funções que usam o resultado
+            },
+            methods: {
+                aumetar() {
+                    this.contador++
+                },
+                diminuir(){
+                    this.contador--
+                }
+                // resultado(){
+                //     console.log("método é chamado")
+                //     return this.contador >= 5 ? 'verdadeiro' : 'falso'
+                // }
+            }
+        }) 
+    </script>
+</body>
+
+</html>

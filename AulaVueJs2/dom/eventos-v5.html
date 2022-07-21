@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+
+        <p v-on:mousemove="atualizarXY">coordenadas são {{x}} e {{y}}
+            <span v-on:mousemove="parar">PARAR AQUi</span>
+        </p>
+
+        <a v-on:click.prevent="naoNavegar" href="http://google.com.br">google</a>
+
+        <button v-on:click="increaseCounter(5)">Somar 1</button>
+
+
+        <input type="text" v-on:keyup.enter="exibirAlerta">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                increaseCounter(sum) {
+                    this.contador = this.contador + sum;
+                },
+                atualizarXY(e) {
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                },
+                parar(e){
+                    e.stopPropagation();
+                },
+                naoNavegar(e){
+                    console.log("Nao navegar")
+                    e.preventDefault();
+                },
+                exibirAlerta(){
+                    alert("keyup");
+                }
+            }
+
+
+        }) 
+    </script>
+</body>
+
+</html>

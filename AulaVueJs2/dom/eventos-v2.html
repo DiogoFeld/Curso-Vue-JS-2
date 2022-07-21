@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+
+        <p v-on:mouseover="atualizarXY">coordenadas são {{x}} e {{y}}</p>
+
+        <button v-on:click="increaseCounter">Somar 1</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                x: 0,
+                y: 0
+            },
+            methods:{
+                increaseCounter(event){
+                    console.log(event)
+                    this.contador++;
+                },
+                atualizarXY(e){                    
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                }
+            }
+
+
+        }) 
+    </script>
+</body>
+
+</html>
