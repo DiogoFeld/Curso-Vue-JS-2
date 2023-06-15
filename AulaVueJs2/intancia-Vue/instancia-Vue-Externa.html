@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <div id="app1">
+        {{ titulo1 }}
+        <button @click="alterar">alterar</button>
+    </div>
+
+    <div id="app2">
+        {{ titulo2 }}
+        <button  @click="alterar">alterar</button>
+    </div>
+
+
+    <script>
+        const v1 = new Vue({
+            el: "#app1",
+            data: {
+                titulo1: "teste 1"
+            },
+            methods: {
+                alterar() {
+                    v2.titulo2 += "???????"
+                }
+            }
+        })
+
+        const v2 = new Vue({
+            el: "#app2",
+            data: {
+                titulo2: "teste 2"
+            },
+            methods: {
+                alterar() {
+                    v1.titulo1 += " ??????"
+                }
+            }
+        })
+
+        setTimeout(() => {
+            v2.titulo2 = "alterado via Javacript"
+        }, 5000);
+
+    </script>
+</body>
+
+</html>

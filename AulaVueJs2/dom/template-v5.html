@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div id="app">
+        <p v-once>{{titulo}}</p>
+        <!-- sera atualizado com o valor Vue apenas 1 vez -->
+        <p>{{saudacao()}}</p>
+        <a v-bind:href="link">GOOGLE</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: "Usando Vue js.2",
+                link:'http://google.com.br'
+            },
+            methods: {
+                saudacao: function () {
+                    this.titulo = "BOM DIA"
+                    return this.titulo
+                }
+
+            }
+        }) 
+    </script>
+</body>
+
+</html>
